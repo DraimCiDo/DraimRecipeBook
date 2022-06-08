@@ -1,0 +1,7 @@
+name: DraimRecipeBook
+version: '${project.version}'
+main: net.draimcido.draimrecipebook.Main
+api-version: 1.17
+authors: [ DraimGooSe ]
+description: recipe book
+website: https://draimcido.net

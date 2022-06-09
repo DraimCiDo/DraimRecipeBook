@@ -1,0 +1,26 @@
+name: Java CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Проверка последнего кода
+        uses: actions/checkout@v2
+
+      - name: Установка JDK 16
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 16
+
+      - name: Билд на мавене
+        run: mvn -B package --file pom.xml
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: DraimRecipeBook
+          path: target

@@ -1,0 +1,8 @@
+Messages:
+  Another:
+    Plugin-Reload: "chat! &8(&c!&8) &7Plugin reloaded."
+    No-Perm: "chat! &8(&c&8) &7No permissions."
+    NoArg: "chat! &8(&c!&8) &7You entered the wrong sub-command!"
+  Help:
+    - "&fBasic plugin commands"
+    - "&8|  &fReload plugin - &7/&2rb reload"

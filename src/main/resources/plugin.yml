@@ -5,3 +5,15 @@ api-version: 1.17
 authors: [ DraimGooSe ]
 description: recipe book
 website: https://draimcido.net
+
+commands:
+  draimrecipebook:
+    description: Основная комада.
+    aliases:
+      - drb
+      - recipebook
+      - rb
+
+permissions:
+  draimrecipebook.reload:
+    description: Права на команду /rb reload

@@ -9,6 +9,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
+import java.util.Set;
 
 public final class Main extends JavaPlugin {
 
@@ -36,6 +37,10 @@ public final class Main extends JavaPlugin {
 
     public static List<String> getConfigStringList(String path) {
         return config.getStringList(path);
+    }
+
+    public static Set<String> getConfigKeys(String path, boolean deep) {
+        return config.getConfigurationSection(path).getKeys(deep);
     }
 
     public static String getConfigString(String path) {

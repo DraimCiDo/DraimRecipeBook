@@ -3,6 +3,7 @@ package net.draimcido.draimrecipebook;
 import net.draimcido.draimrecipebook.Commands.MainCommands;
 import net.draimcido.draimrecipebook.Commands.TabComplete;
 import net.draimcido.draimrecipebook.Config.MessageConfig;
+import net.draimcido.draimrecipebook.Events.HotbarEvent;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -44,6 +45,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        getServer().getPluginManager().registerEvents(new HotbarEvent(), this);
         initCommands();
         instance = this;
         this.saveDefaultConfig();

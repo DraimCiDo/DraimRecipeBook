@@ -11,6 +11,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.persistence.PersistentDataType;
 
 public class MainCommands implements CommandExecutor {
     private Main pl;
@@ -26,6 +27,7 @@ public class MainCommands implements CommandExecutor {
             if (args.length == 0) {
                 if (sender instanceof Player p) {
                     p.openInventory(new MainPage().getMenu());
+                    p.getPersistentDataContainer().set(Main.mainPage, PersistentDataType.STRING, MainPage.name);
                     return true;
                 }
                 return false;

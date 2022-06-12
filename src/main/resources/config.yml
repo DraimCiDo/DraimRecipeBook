@@ -6,3 +6,18 @@ Messages:
   Help:
     - "&fBasic plugin commands"
     - "&8|  &fReload plugin - &7/&2rb reload"
+
+Menus:
+  Main:
+    Title: "Test Menu."
+    Size: 45
+    Buttons:
+      EXIT:
+        material: BARRIER
+        name: "&cExit"
+        lore:
+          - ""
+          - "Exit menu."
+          - ""
+        type: EXIT
+        slots: [ 30 ]

@@ -1,6 +1,7 @@
 package net.draimcido.draimrecipebook.Commands;
 
 import net.draimcido.draimrecipebook.Config.MessageConfig;
+import net.draimcido.draimrecipebook.GUIs.MainPage;
 import net.draimcido.draimrecipebook.Main;
 import net.draimcido.draimrecipebook.Utils.ColorUtils;
 import net.draimcido.draimrecipebook.Utils.MessageUtils;
@@ -22,30 +23,30 @@ public class MainCommands implements CommandExecutor {
     @Override
     public boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args) {
         if (command.getName().equals("draimrecipebook")) {
-            final Player p = (Player)sender;
             if (args.length == 0) {
-                for (final String s : MessageConfig.getMessage().getConfig().getStringList("Messages.Help")) {
-                    p.sendMessage(ColorUtils.color(s));
+                if (sender instanceof Player p) {
+                    p.openInventory(new MainPage().getMenu());
+                    return true;
                 }
                 return false;
             } final String lowerCase = args[0].toLowerCase();
             switch (lowerCase) {
                 case "reload": {
-                    if (p.hasPermission("draimrecipebook.reload")) {
+                    if (sender.hasPermission("draimrecipebook.reload")) {
                         MessageUtils.sendMessage(Main.getConfigString("Messages.Another.Plugin-Reload"), sender);
-                        SoundUtils.playSound(p, Sound.ENTITY_EXPERIENCE_ORB_PICKUP);
+                        SoundUtils.playSound((Player) sender, Sound.ENTITY_EXPERIENCE_ORB_PICKUP);
                         break;
                     }
                     MessageUtils.sendMessage(Main.getConfigString("Messages.Another.No-Perm"), sender);
-                    SoundUtils.playSound(p, Sound.BLOCK_ANVIL_PLACE);
+                    SoundUtils.playSound((Player) sender, Sound.BLOCK_ANVIL_PLACE);
                     break;
                 }
                 default: {
-                    p.sendMessage(MessageUtils.config("config", "Messages.Another.NoArg", p, 0));
+                    sender.sendMessage(MessageUtils.config("config", "Messages.Another.NoArg", (Player) sender, 0));
                     for (final String s2 : MessageConfig.getMessage().getConfig().getStringList("Messages.Help")) {
-                        p.sendMessage(ColorUtils.color(s2));
+                        sender.sendMessage(ColorUtils.color(s2));
                     }
-                    SoundUtils.playSound(p, Sound.BLOCK_ANVIL_PLACE);
+                    SoundUtils.playSound((Player) sender, Sound.BLOCK_ANVIL_PLACE);
                     break;
                 }
             }

@@ -16,6 +16,7 @@ public final class Main extends JavaPlugin {
     public static FileConfiguration config;
 
     public static NamespacedKey buttonKey;
+    public static NamespacedKey mainPage;
 
     private static Main instance;
 
